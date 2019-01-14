@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css?family=Aleo|Ubuntu');
+
+/* URL DE LA ROUE CHROMATIQUE
+https://color.adobe.com/fr/create/color-wheel/?base=2&rule=Triad&selected=0&name=Mon%20th%C3%A8me%20Color&mode=rgb&rgbvalues=0.6803921568627451,0.08266722382787436,0.0680392156862745,0.9742498296366864,0.9836601307189542,0.0983660130718954,0.9803921568627451,0.02341980169964753,0,0.07803921568627448,0.47903257286224954,0.780392156862745,0.03401960784313729,0.403052160029235,0.6803921568627451&swatchOrder=0,1,2,3,4
+
+ROUGE : #AD1511
+
+BLEU : #147AC7
+
+*/
+
+
+/* GLOBAL STYLES
+-------------------------------------------------- */
+/* Padding below the footer and lighter body text */
+
+body {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  color: black;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+/* THE NAVBAR */
+
+.navbar-brand {
+  transform: translateX(-50%);
+  left: 50%;
+  position: absolute;
+}
+
+.navbar-custom {
+  background-color: #AD1511;
+  padding-left: 300px;
+  padding-right: 300px;
+}
+
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-text,
+.navbar-custom .navbar-nav .nav-link {
+    color: #FF8C84;
+    font-weight: bold;
+}
+
+.navbar-custom:hover .navbar-brand:hover,
+.navbar-custom:hover .navbar-text:hover,
+.navbar-custom:hover .navbar-nav:hover .nav-link:hover {
+    color: #fff;
+}
+
+#theactive {
+  color : #fff;
+}
+
+/* MY CSS */
+
+#firstcolorletter::first-letter {
+  color: #AD1511;
+  font-weight: bold;
+}
+
+.form-control:focus {
+  border: 1px solid #AD1511;
+  box-shadow: 0 0 0 0.2rem rgba(250, 114, 104, .25);
+}
+
+.btn-primary{
+  background-color: #AD1511;
+  border-color: #AD1511;
+}
+
+.btn-primary:hover{
+  background-color: #fff;
+  border-color: black;
+  color : black;
+}

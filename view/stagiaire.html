@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+  <meta name="generator" content="Jekyll v3.8.5">
+  <title>Album example · Bootstrap</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="https://getbootstrap.com/docs/4.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+
+  <style>
+  .bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+  }
+
+  @media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+      font-size: 3.5rem;
+    }
+  }
+  </style>
+  <!-- Custom styles for this template -->
+  <link href="style_stagiaire.css" rel="stylesheet">
+</head>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<body>
+  <header>
+    <nav class="navbar navbar-expand-md navbar-custom fixed-top">
+      <a class="navbar-brand" href="home.html" id="theactive">FriBouch Formations</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="home.html">Accueil <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="stagiaire.html"  id="theactive">Stagiaire</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Ajout
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="newstagiaire.html">Ajout d'un stagiaire</a>
+              <a class="dropdown-item" href="addModuleSession.html">Ajout d'une session</a>
+              <a class="dropdown-item" href="addACategorie.html">Ajout d'une categorie</a>
+              <a class="dropdown-item" href="addAModule.html">Ajout d'un module</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"><i class="fas fa-dice"></i></a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+<main role="main">
+  <section class="jumbotron text-center">
+    <h3 class="jumbotron-heading">Ajouter un Stagiaire</h3>
+    <a href="newstagiaire.html" id="thebutton" class="btn btn-primary my-2">Nouveau</a>
+  </section>
+  <section class="jumbotron text-left">
+    <div class="container">
+      <div class="row"id="requestAjax">
+        <script>
+          $(function()
+            {
+              $.post('../controler_view/stagiaire_view.controler.php',
+              function(data)  {
+              $('#requestAjax').html(data);
+            });
+          });
+        </script>
+      </div>
+    </div>
+  </section>
+</main>
+<footer class="container py-5">
+  <div class="row">
+    <div class="col-12 col-md">
+      <p>
+        FriBouch
+      </p>
+    </div>
+    <div class="col-6 col-md">
+      <h5>Accueil</h5>
+      <ul class="list-unstyled text-small">
+        <li><a class="text-muted" href="home.html">Accueil</a></li>
+      </ul>
+    </div>
+    <div class="col-6 col-md">
+      <h5>Stagiaire</h5>
+      <ul class="list-unstyled text-small">
+        <li><a class="text-muted" href="stagiaire.html">Liste des Stagiaires</a></li>
+        <li><a class="text-muted" href="newstagiaire.html">Nouveau Stagiaire</a></li>
+      </ul>
+    </div>
+    <div class="col-6 col-md">
+      <h5>Ajout</h5>
+      <ul class="list-unstyled text-small">
+        <li><a class="text-muted" href="addModuleSession.html">Nouvelle Session</a></li>
+        <li><a class="text-muted" href="addACategorie.html">Nouvelle Catégorie</a></li>
+        <li><a class="text-muted" href="addAModule.html">Nouveau Module</a></li>
+      </ul>
+    </div>
+    <div class="col-6 col-md">
+      <h5>Nous-contactez</h5>
+      <ul class="list-unstyled text-small">
+        <p class="text-muted">Contactez-nous sur :</p>
+        <li><a class="text-muted" href="#">nouscontactezpas@gmail.com</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+  <script>window.jQuery || document.write('<script src="/docs/4.2/assets/js/vendor/jquery-slim.min.js"><\/script>')</script><script src="https://getbootstrap.com/docs/4.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-zDnhMsjVZfS3hiP7oCBRmfjkQC4fzxVxFhBx8Hkz2aZX8gEvA/jsP3eXRCvzTofP" crossorigin="anonymous"></script></body>
+  </html>

@@ -1,0 +1,143 @@
+-- phpMyAdmin SQL Dump
+-- version 4.7.9
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1:3306
+-- Generation Time: Jan 14, 2019 at 02:56 PM
+-- Server version: 5.7.21
+-- PHP Version: 5.6.35
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `session`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `categorie`
+--
+
+DROP TABLE IF EXISTS `categorie`;
+CREATE TABLE IF NOT EXISTS `categorie` (
+  `id_categorie` int(11) NOT NULL AUTO_INCREMENT,
+  `nom_categorie` varchar(200) COLLATE utf8_bin NOT NULL,
+  PRIMARY KEY (`id_categorie`)
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `module`
+--
+
+DROP TABLE IF EXISTS `module`;
+CREATE TABLE IF NOT EXISTS `module` (
+  `id_module` int(11) NOT NULL AUTO_INCREMENT,
+  `nom_module` varchar(50) COLLATE utf8_bin NOT NULL,
+  `id_categorie` int(11) NOT NULL,
+  PRIMARY KEY (`id_module`),
+  KEY `module_categorie_FK` (`id_categorie`)
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `session`
+--
+
+DROP TABLE IF EXISTS `session`;
+CREATE TABLE IF NOT EXISTS `session` (
+  `id_session` int(11) NOT NULL AUTO_INCREMENT,
+  `nom_session` varchar(50) COLLATE utf8_bin NOT NULL,
+  `dated` varchar(50) COLLATE utf8_bin NOT NULL,
+  `datef` varchar(50) COLLATE utf8_bin NOT NULL,
+  `nb_theorique` int(11) NOT NULL,
+  PRIMARY KEY (`id_session`)
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `session_module`
+--
+
+DROP TABLE IF EXISTS `session_module`;
+CREATE TABLE IF NOT EXISTS `session_module` (
+  `id_module` int(11) NOT NULL,
+  `id_session` int(11) NOT NULL,
+  `nb_jours` int(11) NOT NULL,
+  PRIMARY KEY (`id_module`,`id_session`),
+  KEY `session_module_session0_FK` (`id_session`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `stagiaire`
+--
+
+DROP TABLE IF EXISTS `stagiaire`;
+CREATE TABLE IF NOT EXISTS `stagiaire` (
+  `id_stagiaire` int(11) NOT NULL AUTO_INCREMENT,
+  `nom_stagiaire` varchar(50) COLLATE utf8_bin NOT NULL,
+  `prenom_stagiaire` varchar(50) COLLATE utf8_bin NOT NULL,
+  `sexe` char(1) COLLATE utf8_bin NOT NULL,
+  `ville` varchar(50) COLLATE utf8_bin NOT NULL,
+  `email` char(50) COLLATE utf8_bin NOT NULL,
+  `phone` varchar(50) COLLATE utf8_bin NOT NULL,
+  PRIMARY KEY (`id_stagiaire`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `stagiaire_session`
+--
+
+DROP TABLE IF EXISTS `stagiaire_session`;
+CREATE TABLE IF NOT EXISTS `stagiaire_session` (
+  `id_session` int(11) NOT NULL,
+  `id_stagiaire` int(11) NOT NULL,
+  PRIMARY KEY (`id_session`,`id_stagiaire`),
+  KEY `stagiaire_session_stagiaire0_FK` (`id_stagiaire`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `module`
+--
+ALTER TABLE `module`
+  ADD CONSTRAINT `module_categorie_FK` FOREIGN KEY (`id_categorie`) REFERENCES `categorie` (`id_categorie`);
+
+--
+-- Constraints for table `session_module`
+--
+ALTER TABLE `session_module`
+  ADD CONSTRAINT `session_module_module_FK` FOREIGN KEY (`id_module`) REFERENCES `module` (`id_module`),
+  ADD CONSTRAINT `session_module_session0_FK` FOREIGN KEY (`id_session`) REFERENCES `session` (`id_session`);
+
+--
+-- Constraints for table `stagiaire_session`
+--
+ALTER TABLE `stagiaire_session`
+  ADD CONSTRAINT `stagiaire_session_session_FK` FOREIGN KEY (`id_session`) REFERENCES `session` (`id_session`),
+  ADD CONSTRAINT `stagiaire_session_stagiaire0_FK` FOREIGN KEY (`id_stagiaire`) REFERENCES `stagiaire` (`id_stagiaire`);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

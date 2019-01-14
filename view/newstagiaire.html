@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link href="https://getbootstrap.com/docs/4.1/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link href="style_inscription.css" rel="stylesheet">
+</head>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<body class="bg-light">
+
+	<header>
+		<nav class="navbar navbar-expand-md navbar-custom fixed-top">
+			<a class="navbar-brand" href="home.html" id="theactive">FriBouch Formations</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarCollapse">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active">
+						<a class="nav-link" href="home.html" >Accueil <span class="sr-only">(current)</span></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="stagiaire.html">Stagiaire</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#"><i class="fas fa-dice"></i></a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+	</header>
+
+	<main>
+		<div class="container" id="contain">
+			<div class="py-5 text-center">
+				<h3 class="mb-3">Inscription</h3>
+			</div>
+
+			<form action="../controler/addStagiaire.controler.php" method="post" >
+
+				<div class="mb-3">
+					<label id="firstcolorletter" for="nom">Nom</label>
+					<div class="input-group">
+						<input type="text" name="nom" placeholder="Veuillez saisir votre pseudo" class="form-control" required>
+					</div>
+				</div>
+
+				<div class="mb-3">
+					<label id="firstcolorletter" for="prenom">Prenom</label>
+					<div class="input-group">
+						<input type="text" name="prenom" placeholder="Veuillez saisir votre pseudo" class="form-control" required>
+					</div>
+				</div>
+
+				<div class="mb-3">
+					<label id="firstcolorletter" for="sexe">Sexe</label>
+					<div class="input-group">
+						<select class="form-control" name="sexe">
+							<option>M</option>
+							<option>F</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="mb-3">
+					<label id="firstcolorletter" for="ville">Ville</label>
+					<div class="input-group">
+						<input type="text" name="ville" placeholder="Veuillez saisir votre ville" class="form-control" required>
+					</div>
+				</div>
+
+				<div class="mb-3">
+					<label id="firstcolorletter" for="email">Email</label>
+					<input type="mail" name="email" placeholder="Veuillez saisir votre adresse mail..." id="email" class="form-control" required>
+				</div>
+
+				<div class="mb-3">
+					<label id="firstcolorletter" for="phone">Téléphone</label>
+					<div class="input-group">
+						<input type="text" class="form-control" id="telephone" placeholder="Telephone..." name="phone">
+					</div>
+				</div>
+
+				<hr class="mb-4">
+
+				<input type="submit" value="Nouveau Stagiaire" class="btn btn-primary btn-lg btn-block" id="thebutton">
+
+			</form>
+		</div>
+	</main>
+
+	<footer class="container py-5">
+    <div class="row">
+      <div class="col-12 col-md">
+        <p>
+          FriBouch
+        </p>
+      </div>
+      <div class="col-6 col-md">
+        <h5>Accueil</h5>
+        <ul class="list-unstyled text-small">
+          <li><a class="text-muted" href="home.html">Accueil</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-md">
+        <h5>Stagiaire</h5>
+        <ul class="list-unstyled text-small">
+          <li><a class="text-muted" href="stagiaire.html">Liste des Stagiaires</a></li>
+          <li><a class="text-muted" href="newstagiaire.html">Nouveau Stagiaire</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-md">
+        <h5>Ajout</h5>
+        <ul class="list-unstyled text-small">
+          <li><a class="text-muted" href="addModuleSession.html">Nouvelle Session</a></li>
+          <li><a class="text-muted" href="addACategorie.html">Nouvelle Catégorie</a></li>
+          <li><a class="text-muted" href="addAModule.html">Nouveau Module</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-md">
+        <h5>Nous-contactez</h5>
+        <ul class="list-unstyled text-small">
+          <p class="text-muted">Contactez-nous sur :</p>
+          <li><a class="text-muted" href="#">nouscontactezpas@gmail.com</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
