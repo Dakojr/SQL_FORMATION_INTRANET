@@ -23,6 +23,15 @@ class StagiaireDAO extends DbConnect {
         return $results->fetchAll();
     }
 
+    public function getSessionFromStagiaire($id){
+      $params = array(
+          'id' => $id
+      );
+      $sql = "SELECT s.nom_session, s.id_session, s.dated, s.datef from stagiaire_session ss, session s where ss.id_stagiaire = :id AND ss.id_session = s.id_session";
+      $results = parent::executeQuery($sql, $params);
+      return $results->fetchAll();
+}
+
     public function getStagiaireForScrollBar($id){
         $sql = "SELECT st.id_stagiaire, st.nom_stagiaire, st.prenom_stagiaire from stagiaire st
         where st.id_stagiaire NOT IN (SELECT s.id_stagiaire FROM stagiaire_session s where s.id_session = :id)";

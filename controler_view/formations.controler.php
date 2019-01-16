@@ -32,23 +32,23 @@ $a = 0;
                 $a++;
               }
             }
-            $a++;
-
           }?>
 
           <hr class="mb-4">
           <div class="container" id="contain">
             <div class="py-1 text-center">
               <h3 class="mb-3" style="color: black;">Stagiaire Inscrit</h3>
-</div>
-<?php
-foreach ($stagiaire_inscrit as $key => $value)
-{?>
-  <a href="../controler/stagiaire.controler.php?id=<?php echo  $value['id_stagiaire'];?>" style="width: 100%;"><?= $value['nom_stagiaire'] . " " . $value['prenom_stagiaire'];?></a>
-<?php
-}
-?>
-</div>
+              <button type="button" class="btn btn-sm btn-outline-secondary" id="thebutton" ><a id="buttonvoir" href="../view/newstagiaire.html" style="color: black; " >Nouveau stagiaire</a>
+            </div>
+            <?php
+            foreach ($stagiaire_inscrit as $key => $value)
+            {?>
+              <a href="../controler/stagiaire.controler.php?id=<?php echo  $value['id_stagiaire'];?>" style="width: 100%;"><?= $value['nom_stagiaire'] . " " . $value['prenom_stagiaire'];?></a>
+              <br />
+              <?php
+            }
+            ?>
+          </div>
 
           <hr class="mb-4">
           <div class="container" id="contain">
@@ -73,7 +73,7 @@ foreach ($stagiaire_inscrit as $key => $value)
                 <hr class="mb-4">
 
                 <div id="formcontainer"></div>
-                  <input type="submit" value="L'inscrire" class="btn btn-primary btn-lg btn-block" id="thebutton">
+                <input type="submit" value="L'inscrire" class="btn btn-primary btn-lg btn-block" id="thebutton">
               </div>
             </form>
           </div>

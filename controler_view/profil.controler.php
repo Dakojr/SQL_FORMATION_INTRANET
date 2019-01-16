@@ -18,6 +18,7 @@ else
   {
     $sexe = "Féminin";
   }
+var_dump($session_stagiaire);
 ?>
 
 <div class="jumbotron text-center" id="profiljumbotron">
@@ -31,4 +32,15 @@ else
       Genre : <?= $sexe . "<br />";?>
     </p>
   </div>
+  <div class="container" style="padding-top: 3em;">
+    <h3 class="jumbotron-heading">Session inscrit</h3>
+    <?php
+    foreach ($session_stagiaire as $key => $value) {
+      foreach ($value as $x => $c) {?>
+        <a id="buttonvoir" href="../controler/session.controler.php?id_session=<?= $c['id_session']?>"><?= $c['nom_session'] . " | du " . $c['dated'] . " au " . $c['datef'];?></a>
+        <?php
+      }
+    }?>
+
+</div>
 </div>

@@ -11,6 +11,10 @@ foreach($stagiaireDAO->getAll() as $v){
     $stagiaire[] = new Stagiaire($v);
 }
 
+
+if (isset($_SESSION['stagiaire'])){
+    $session_stagiaire[] = $stagiaireDAO->getSessionFromStagiaire($_SESSION['stagiaire'][0]);
+}
 if (isset($_GET['id'])){
     foreach($stagiaireDAO->getStagiaireById($_GET['id']) as $v){
         foreach($v as $tab){
@@ -23,7 +27,7 @@ if (isset($_GET['id'])){
 
 if (isset($_GET['id_session'])){
   $first = $stagiaireDAO->getStagiaireForScrollBar($_GET['id_session']);
-  $stagiaire_inscrit = $stagiaireDAO->getStagiaireIdByIdSession($_GET['id_session']);  
+  $stagiaire_inscrit = $stagiaireDAO->getStagiaireIdByIdSession($_GET['id_session']);
   if ($_SERVER['PHP_SELF'] == "/SQL_SESSION/controler/stagiaire.controler.php"){
         header("Location: ../view/home.html");
     }
